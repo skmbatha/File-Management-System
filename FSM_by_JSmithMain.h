@@ -1,0 +1,43 @@
+/***************************************************************
+ * Name:      FSM_by_JSmithMain.h
+ * Purpose:   Defines Application Frame
+ * Author:    SK MBATHA (skatlego.mbatha@gmail.com)
+ * Created:   2020-12-26
+ * Copyright: SK MBATHA ()
+ * License:
+ **************************************************************/
+
+#ifndef FSM_BY_JSMITHMAIN_H
+#define FSM_BY_JSMITHMAIN_H
+
+#define wxID_TIMER1 2115
+
+#include "FSM_by_JSmithApp.h"
+#include "GUIDialog.h"
+#include "GUIFrame.h"
+#include <wx/wx.h>
+#include <wx/timer.h>
+
+class FSM_by_JSmithFrame: public GUIFrame
+{
+    public:
+
+        FSM_by_JSmithFrame(wxFrame *frame);
+        ~FSM_by_JSmithFrame();
+
+    private:
+        virtual void OnClose(wxCloseEvent& event);
+        virtual void OnQuit(wxCommandEvent& event);
+        virtual void OnAbout(wxCommandEvent& event);
+        virtual void OnOpen(wxCommandEvent& event);
+        virtual void OnNew(wxCommandEvent& event);
+        void OnTimerEvent(wxTimerEvent& event);
+        static bool timerEnabled;
+
+
+    protected:
+        wxFrame* myAppPtr;/// App pointer
+        wxTimer* timerObj;
+};
+
+#endif // FSM_BY_JSMITHMAIN_H
